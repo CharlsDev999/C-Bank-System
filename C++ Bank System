@@ -1,0 +1,64 @@
+#include <iostream> 
+using namespace std; 
+
+int main() 
+{ 
+    float balance[] = {0}; 
+    float depositAmount[] = {0}; 
+    float withdrawAmount[] = {0}; 
+    float totalDepositAmount[] = {0}; 
+    float totalWithdrawAmount[] = {0}; 
+    float totalTransaction[] = {0}; 
+    float totalBalance[] = {0}; 
+    string userName[] = {""}; 
+    string userPassword[] = {""}; 
+    int userChoice[] = {0}; 
+    cout << "\t-----CHARLS BANK SYSTEM-----" <<endl;
+    
+
+    cout << "\nEnter your user name: "; 
+    getline(cin, userName[0]); 
+    cout << "Enter your password: "; 
+    cin >> userPassword[0]; 
+    do 
+    { 
+       
+        cout << "\nWelcome to the bank system. Please make a choice." << endl; 
+        cout << "1 - Deposit" << endl; 
+        cout << "2 - Withdraw" << endl; 
+        cout << "3 - Check balance" << endl;
+        cout << "4 - Exit" << endl;
+        cout << "Enter you choice: ";
+        cin >> userChoice[0]; 
+        switch(userChoice[0]){
+            case 1:
+                cout << "Enter the deposit amount: "; 
+                cin >> depositAmount[0]; 
+                balance[0] += depositAmount[0]; 
+                totalDepositAmount[0] += depositAmount[0];
+                cout <<"Transaction Succesful"<< endl;
+                totalTransaction[0]++;
+                break; 
+            case 2:
+                cout << "Enter the withdraw amount: "; 
+                cin >> withdrawAmount[0]; 
+                balance[0] -= withdrawAmount[0]; 
+                totalWithdrawAmount[0] += withdrawAmount[0]; 
+                cout <<"Transaction Succesful"<< endl;
+                totalTransaction[0]++;
+                break; 
+            case 3:
+                totalBalance[0] = totalDepositAmount[0] - totalWithdrawAmount[0]; 
+                cout << "Your balance is: " << totalBalance[0] << endl;
+                break;
+            case 4:
+                cout << "Thank you for using our bank system." << endl; 
+                break; 
+            default:
+                cout << "Invalid choice." << endl; 
+                break;
+        }
+    } 
+    while (userChoice[0] != 4); 
+    return 0; 
+}
